@@ -27,8 +27,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void dispose() {
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 
   Widget build(BuildContext context) {

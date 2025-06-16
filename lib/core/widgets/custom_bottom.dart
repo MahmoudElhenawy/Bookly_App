@@ -1,0 +1,38 @@
+import 'package:bookly/core/utils/styles.dart';
+import 'package:flutter/material.dart';
+
+class CustomBottom extends StatelessWidget {
+  const CustomBottom({
+    super.key,
+    required this.text,
+    required this.textColor,
+    required this.backgroundColor,
+    this.borderRadius,
+    this.fontSize,
+  });
+  final String text;
+  final Color textColor;
+  final Color backgroundColor;
+  final BorderRadius? borderRadius;
+  final double? fontSize;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 43,
+      child: TextButton(
+          onPressed: () {},
+          style: TextButton.styleFrom(
+              backgroundColor: backgroundColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: borderRadius ?? BorderRadius.circular(12),
+              )),
+          child: Text(
+            text,
+            style: Styles.textStyle16.copyWith(
+                color: textColor,
+                fontWeight: FontWeight.w900,
+                fontSize: fontSize),
+          )),
+    );
+  }
+}
