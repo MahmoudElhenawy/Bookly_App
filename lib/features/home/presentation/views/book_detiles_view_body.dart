@@ -23,7 +23,9 @@ class BookDetilesViewBody extends StatelessWidget {
                 const CusttomBoohDetilesAppBar(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: Width * 0.17),
-                  child: CustomListViewItem(),
+                  child: CustomListViewItem(
+                    imageUrl: '',
+                  ),
                 ),
                 const SizedBox(
                   height: 43,
