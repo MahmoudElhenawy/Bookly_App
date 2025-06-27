@@ -51,6 +51,7 @@ class BookDetilesViewBody extends StatelessWidget {
                 ),
                 const BookRating(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  count: 155,
                 ),
                 const SizedBox(
                   height: 24,
