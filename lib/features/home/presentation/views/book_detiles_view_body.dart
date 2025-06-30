@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_list_view_item.dart';
@@ -7,8 +8,8 @@ import 'package:bookly/features/home/presentation/views/widgets/similar_books_li
 import 'package:flutter/material.dart';
 
 class BookDetilesViewBody extends StatelessWidget {
-  const BookDetilesViewBody({super.key});
-
+  const BookDetilesViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var Width = MediaQuery.of(context).size.width;
@@ -24,15 +25,16 @@ class BookDetilesViewBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: Width * 0.17),
                   child: CustomListViewItem(
-                    imageUrl: '',
+                    imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
                   ),
                 ),
                 const SizedBox(
                   height: 43,
                 ),
-                const Text(
-                  'The Jungle Book',
+                Text(
+                  bookModel.volumeInfo.title!,
                   style: Styles.textStyle30,
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 6,
@@ -40,7 +42,7 @@ class BookDetilesViewBody extends StatelessWidget {
                 Opacity(
                   opacity: 0.7,
                   child: Text(
-                    'Rudyard Kipling',
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle18.copyWith(
                       fontStyle: FontStyle.italic,
                     ),
@@ -49,14 +51,15 @@ class BookDetilesViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 18,
                 ),
-                const BookRating(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  count: 155,
-                ),
+                BookRating(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    count: bookModel.volumeInfo.pageCount!),
                 const SizedBox(
                   height: 24,
                 ),
-                const BooksAction(),
+                BooksAction(
+                  bookModel: bookModel,
+                ),
                 const Expanded(
                   child: SizedBox(
                     height: 50,
