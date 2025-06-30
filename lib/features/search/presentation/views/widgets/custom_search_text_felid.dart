@@ -10,7 +10,7 @@ class CustomSearchTextFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: onSearch,
+      onChanged: onSearch,
       decoration: InputDecoration(
         enabledBorder: BulidOutlineInputBorder(),
         focusedBorder: BulidOutlineInputBorder(),
