@@ -41,7 +41,9 @@ class BestSellerListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    bookModel.volumeInfo.authors![0],
+                    bookModel.volumeInfo.authors?.isNotEmpty == true
+                        ? bookModel.volumeInfo.authors![0]
+                        : 'Unknown Author',
                     style: Styles.textStyle14,
                     maxLines: 1,
                   ),
