@@ -31,7 +31,7 @@ class BestSellerListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    bookModel.volumeInfo.title!,
+                    bookModel.volumeInfo.title ?? 'No title available',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style:

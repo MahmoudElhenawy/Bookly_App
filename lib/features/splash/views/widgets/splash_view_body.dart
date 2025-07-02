@@ -22,7 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.initState();
     initSlidingAnimation();
     Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(context).push(AppRouter.homeView);
+      GoRouter.of(context).push(AppRouter.loginView);
     });
   }
 
